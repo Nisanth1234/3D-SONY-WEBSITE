@@ -11,8 +11,8 @@ const config: Config = {
       colors: {
         background: "#050505",
         secondary: "#0A0A0C",
-        sonyBlue: "#0050FF",
-        sonyCyan: "#00D6FF",
+        nixBlue: "#0050FF",
+        nixCyan: "#00D6FF",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

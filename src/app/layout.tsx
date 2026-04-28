@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Sony WH-1000XM6 | Silence, perfected.",
-  description: "Experience the new Sony WH-1000XM6 flagship wireless noise cancelling headphones.",
+  title: "NIX Sonic Pro | Silence, perfected.",
+  description: "Experience the new NIX Sonic Pro flagship wireless noise cancelling headphones.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground overflow-x-hidden selection:bg-sonyBlue/30`}>
+      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground overflow-x-hidden selection:bg-nixBlue/30`}>
         {children}
       </body>
     </html>

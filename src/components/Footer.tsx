@@ -11,16 +11,16 @@ export default function Footer() {
           {/* Brand & Contact */}
           <div className="md:col-span-2">
             <Link href="/" className="text-white/90 font-medium tracking-tight text-xl mb-6 block">
-              SONY
+              NIX
             </Link>
             <p className="text-white/50 text-sm max-w-sm mb-6 leading-relaxed">
-              Experience the pinnacle of acoustic engineering and adaptive noise cancellation with the new WH-1000XM6.
+              Experience the pinnacle of acoustic engineering and adaptive noise cancellation with the new NIX Sonic Pro.
             </p>
             <div className="flex flex-col gap-2">
               <span className="text-white/40 text-xs uppercase tracking-widest font-mono">Contact Us</span>
               <a 
                 href="mailto:nisanthk38@gmail.com" 
-                className="text-white/50 hover:text-sonyBlue transition-colors font-medium text-sm"
+                className="text-white/50 hover:text-nixBlue transition-colors font-medium text-sm"
               >
                 nisanthk38@gmail.com
               </a>
@@ -85,7 +85,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5">
           <p className="text-white/40 text-xs mb-4 md:mb-0">
-            © {new Date().getFullYear()} Sony Corporation. All rights reserved.
+            © {new Date().getFullYear()} NIX Audio. All rights reserved.
           </p>
           <div className="flex gap-4">
             <span className="text-white/40 text-xs">Built for demonstration purposes.</span>

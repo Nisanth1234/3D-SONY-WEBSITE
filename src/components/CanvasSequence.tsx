@@ -9,6 +9,8 @@ interface CanvasSequenceProps {
   scrollContainerRef?: React.RefObject<HTMLDivElement>;
   objectFit?: "cover" | "contain";
   scale?: number;
+  mobileObjectFit?: "cover" | "contain";
+  mobileScale?: number;
 }
 
 export default function CanvasSequence({ 
@@ -16,7 +18,9 @@ export default function CanvasSequence({
   sequencePath = "/sequence/",
   scrollContainerRef,
   objectFit = "cover",
-  scale = 1.0
+  scale = 1.0,
+  mobileObjectFit,
+  mobileScale,
 }: CanvasSequenceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -29,6 +33,9 @@ export default function CanvasSequence({
 
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   
+  // Determine if mobile based on viewport width
+  const getIsMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
+
   // Preload images
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = [];
@@ -74,9 +81,14 @@ export default function CanvasSequence({
     const hRatio = canvas.width / img.width;
     const vRatio = canvas.height / img.height;
     
+    // Determine active fit mode and scale based on viewport
+    const isMobile = getIsMobile();
+    const activeFit = isMobile && mobileObjectFit ? mobileObjectFit : objectFit;
+    const activeScale = isMobile && mobileScale !== undefined ? mobileScale : scale;
+
     // Choose cover or contain
-    let ratio = objectFit === "cover" ? Math.max(hRatio, vRatio) : Math.min(hRatio, vRatio);
-    ratio = ratio * scale; // Apply scaling factor to reduce size if requested
+    let ratio = activeFit === "cover" ? Math.max(hRatio, vRatio) : Math.min(hRatio, vRatio);
+    ratio = ratio * activeScale; // Apply scaling factor
 
     const centerShift_x = (canvas.width - img.width * ratio) / 2;
     const centerShift_y = (canvas.height - img.height * ratio) / 2;
@@ -94,7 +106,7 @@ export default function CanvasSequence({
       img.width * ratio,
       img.height * ratio
     );
-  }, [objectFit, scale]);
+  }, [objectFit, scale, mobileObjectFit, mobileScale]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (images.length === 0) return;
@@ -126,7 +138,7 @@ export default function CanvasSequence({
     
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [images, scrollYProgress, frameCount, objectFit, scale]);
+  }, [images, scrollYProgress, frameCount, drawFrame]);
 
   return (
     <div ref={containerRef} className="absolute inset-0">

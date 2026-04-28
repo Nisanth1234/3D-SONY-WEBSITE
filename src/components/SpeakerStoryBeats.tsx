@@ -53,7 +53,7 @@ export default function SpeakerStoryBeats() {
 
       {/* 20-50%: MAGNETS & COILS */}
       <StoryBlock align="left">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white to-sonyCyan">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white to-nixCyan">
           Power in precision.
         </h2>
         <div className="space-y-4 text-white/60 text-lg leading-relaxed max-w-md">
@@ -68,7 +68,7 @@ export default function SpeakerStoryBeats() {
 
       {/* 50-80%: ACOUSTIC CHAMBER */}
       <StoryBlock align="right">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 bg-clip-text text-transparent bg-gradient-to-bl from-white to-sonyBlue">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 bg-clip-text text-transparent bg-gradient-to-bl from-white to-nixBlue">
           Optimized airflow.
         </h2>
         <div className="space-y-4 text-white/60 text-lg leading-relaxed max-w-md">

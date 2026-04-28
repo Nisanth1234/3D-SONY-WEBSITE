@@ -72,12 +72,12 @@ export default function FeatureSections() {
         >
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white/90 mb-6">
             Technology.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sonyBlue to-sonyCyan">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-nixBlue to-nixCyan">
               Rewriting the rules of sound.
             </span>
           </h2>
           <p className="text-xl text-white/50 max-w-2xl">
-            Powered by our next-generation V2 Integrated Processor, the WH-1000XM6 delivers a paradigm shift in both acoustic precision and smart functionality.
+            Powered by our next-generation V2 Integrated Processor, the Sonic Pro delivers a paradigm shift in both acoustic precision and smart functionality.
           </p>
         </motion.div>
 
@@ -130,7 +130,7 @@ export default function FeatureSections() {
             <span className="text-white/40">Absolute silence.</span>
           </h2>
           <p className="text-xl text-white/50 max-w-2xl">
-            Whether you’re on a long-haul flight or in a bustling cafe, the WH-1000XM6 shuts out the world, analyzing and adapting to your environment thousands of times per second.
+            Whether you’re on a long-haul flight or in a bustling cafe, the Sonic Pro shuts out the world, analyzing and adapting to your environment thousands of times per second.
           </p>
         </motion.div>
 

@@ -2,11 +2,13 @@ import CanvasSequence from "@/components/CanvasSequence";
 import Navbar from "@/components/Navbar";
 import StoryBeats from "@/components/StoryBeats";
 import FeatureSections from "@/components/FeatureSections";
+import Link from "next/link";
 import Footer from "@/components/Footer";
+import TechShowcase from "@/components/TechShowcase";
 
 export default function Home() {
   return (
-    <main className="relative bg-background text-foreground min-h-screen selection:bg-sonyBlue/30">
+    <main className="relative bg-background text-foreground min-h-screen selection:bg-nixBlue/30">
       <Navbar />
 
       {/* 
@@ -14,17 +16,17 @@ export default function Home() {
         A clean, non-sticky product header before the scrollytelling begins.
       */}
       <div className="pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto text-center flex flex-col items-center">
-        <span className="text-sonyBlue font-semibold tracking-wider text-sm uppercase mb-4">New Release</span>
+        <span className="text-nixBlue font-semibold tracking-wider text-sm uppercase mb-4">New Release</span>
         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-6">
-          Sony WH-1000XM6
+          NIX Sonic Pro
         </h1>
         <p className="text-xl text-white/60 max-w-2xl mb-8">
           The pinnacle of noise cancelling. Re-engineered from the inside out.
         </p>
         <div className="flex gap-4">
-          <button className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition-colors">
+          <Link href="/prebook" className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition-colors">
             Pre-order
-          </button>
+          </Link>
           <button className="px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors">
             Watch the film
           </button>
@@ -42,6 +44,8 @@ export default function Home() {
           sequencePath="/sequence/" 
           objectFit="contain"
           scale={1.15}
+          mobileObjectFit="cover"
+          mobileScale={1.0}
         />
         {/* The text overlays that fade in and out at different scroll positions */}
         <StoryBeats />
@@ -51,6 +55,11 @@ export default function Home() {
         SECTION 2: Technology & Noise Cancelling Feature Blocks
       */}
       <FeatureSections />
+
+      {/* 
+        SECTION 3: Deep Dive Technology Showcase
+      */}
+      <TechShowcase />
 
       <Footer />
 
