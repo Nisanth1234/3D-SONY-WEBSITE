@@ -36,33 +36,6 @@ export default function CanvasSequence({
   // Determine if mobile based on viewport width
   const getIsMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
 
-  // Preload images
-  useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-    
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      // Pad to 3 digits, e.g., 001, 002
-      const frameNum = i.toString().padStart(3, "0");
-      // Use the sequencePath prop
-      img.src = `${sequencePath}ezgif-frame-${frameNum}.jpg`;
-      
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === frameCount) {
-          // All images loaded
-          setImages(loadedImages);
-          // Draw first frame immediately
-          if (canvasRef.current) {
-            drawFrame(loadedImages[0]);
-          }
-        }
-      };
-      loadedImages.push(img);
-    }
-  }, [frameCount, sequencePath]);
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const drawFrame = useCallback((img: HTMLImageElement) => {
     const canvas = canvasRef.current;
@@ -107,6 +80,33 @@ export default function CanvasSequence({
       img.height * ratio
     );
   }, [objectFit, scale, mobileObjectFit, mobileScale]);
+
+  // Preload images
+  useEffect(() => {
+    const loadedImages: HTMLImageElement[] = [];
+    let loadedCount = 0;
+    
+    for (let i = 1; i <= frameCount; i++) {
+      const img = new Image();
+      // Pad to 3 digits, e.g., 001, 002
+      const frameNum = i.toString().padStart(3, "0");
+      // Use the sequencePath prop
+      img.src = `${sequencePath}ezgif-frame-${frameNum}.jpg`;
+      
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === frameCount) {
+          // All images loaded
+          setImages(loadedImages);
+          // Draw first frame immediately
+          if (canvasRef.current) {
+            drawFrame(loadedImages[0]);
+          }
+        }
+      };
+      loadedImages.push(img);
+    }
+  }, [frameCount, sequencePath, drawFrame]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (images.length === 0) return;

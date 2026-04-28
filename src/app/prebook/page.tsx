@@ -200,7 +200,7 @@ export default function PrebookPage() {
                   </div>
                   <h2 className="text-3xl font-bold text-white mb-4">Reservation Confirmed.</h2>
                   <p className="text-white/50 mb-8">
-                    Thank you, {formData.name.split(' ')[0]}. We've sent a confirmation email to <span className="text-white/80">{formData.email}</span>. 
+                    Thank you, {formData.name.split(' ')[0]}. We&apos;ve sent a confirmation email to <span className="text-white/80">{formData.email}</span>. 
                     You are now #2,842 in line for the NIX Sonic Pro.
                   </p>
                   <Link 
