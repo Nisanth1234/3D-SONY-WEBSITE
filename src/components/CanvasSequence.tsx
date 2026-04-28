@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 interface CanvasSequenceProps {
@@ -56,7 +56,8 @@ export default function CanvasSequence({
     }
   }, [frameCount, sequencePath]);
 
-  const drawFrame = (img: HTMLImageElement) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const drawFrame = useCallback((img: HTMLImageElement) => {
     const canvas = canvasRef.current;
     if (!canvas || !img) return;
     const parent = canvas.parentElement;
@@ -93,7 +94,7 @@ export default function CanvasSequence({
       img.width * ratio,
       img.height * ratio
     );
-  };
+  }, [objectFit, scale]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (images.length === 0) return;
